@@ -2,23 +2,33 @@ module TD::Types
   # Describes a message.
   #
   # @attr id [Integer] Message identifier; unique for the chat to which the message belongs.
-  # @attr sender [TD::Types::MessageSender] The sender of the message.
+  # @attr sender_id [TD::Types::MessageSender] Identifier of the sender of the message.
   # @attr chat_id [Integer] Chat identifier.
-  # @attr sending_state [TD::Types::MessageSendingState, nil] Information about the sending state of the message; may
-  #   be null.
-  # @attr scheduling_state [TD::Types::MessageSchedulingState, nil] Information about the scheduling state of the
-  #   message; may be null.
+  # @attr sending_state [TD::Types::MessageSendingState, nil] The sending state of the message; may be null.
+  # @attr scheduling_state [TD::Types::MessageSchedulingState, nil] The scheduling state of the message; may be null.
   # @attr is_outgoing [Boolean] True, if the message is outgoing.
   # @attr is_pinned [Boolean] True, if the message is pinned.
   # @attr can_be_edited [Boolean] True, if the message can be edited.
   #   For live location and poll messages this fields shows whether editMessageLiveLocation or stopPoll can be used
   #   with this message by the application.
   # @attr can_be_forwarded [Boolean] True, if the message can be forwarded.
+  # @attr can_be_saved [Boolean] True, if content of the message can be saved locally or copied.
   # @attr can_be_deleted_only_for_self [Boolean] True, if the message can be deleted only for the current user while
   #   other users will continue to see it.
   # @attr can_be_deleted_for_all_users [Boolean] True, if the message can be deleted for all users.
-  # @attr can_get_statistics [Boolean] True, if the message statistics are available.
-  # @attr can_get_message_thread [Boolean] True, if the message thread info is available.
+  # @attr can_get_added_reactions [Boolean] True, if the list of added reactions is available through
+  #   getMessageAddedReactions.
+  # @attr can_get_statistics [Boolean] True, if the message statistics are available through getMessageStatistics.
+  # @attr can_get_message_thread [Boolean] True, if information about the message thread is available through
+  #   getMessageThread and getMessageThreadHistory.
+  # @attr can_get_viewers [Boolean] True, if chat members already viewed the message can be received through
+  #   getMessageViewers.
+  # @attr can_get_media_timestamp_links [Boolean] True, if media timestamp links can be generated for media timestamp
+  #   entities in the message text, caption or web page description through getMessageLink.
+  # @attr can_report_reactions [Boolean] True, if reactions on the message can be reported through
+  #   reportMessageReactions.
+  # @attr has_timestamped_media [Boolean] True, if media timestamp entities refers to a media in this message as
+  #   opposed to a media in the replied message.
   # @attr is_channel_post [Boolean] True, if the message is a channel post.
   #   All messages to channels are channel posts, all other messages are not channel posts.
   # @attr contains_unread_mention [Boolean] True, if the message contains an unread mention for the current user.
@@ -27,6 +37,7 @@ module TD::Types
   # @attr forward_info [TD::Types::MessageForwardInfo, nil] Information about the initial message sender; may be null.
   # @attr interaction_info [TD::Types::MessageInteractionInfo, nil] Information about interactions with the message;
   #   may be null.
+  # @attr unread_reactions [Array<TD::Types::UnreadReaction>] Information about unread reactions added to the message.
   # @attr reply_in_chat_id [Integer] If non-zero, the identifier of the chat to which the replied message belongs;
   #   Currently, only messages in the Replies chat can have different reply_in_chat_id and chat_id.
   # @attr reply_to_message_id [Integer] If non-zero, the identifier of the message this message is replying to; can be
@@ -36,6 +47,7 @@ module TD::Types
   # @attr ttl [Integer] For self-destructing messages, the message's TTL (Time To Live), in seconds; 0 if none.
   #   TDLib will send {TD::Types::Update::DeleteMessages} or {TD::Types::Update::MessageContent} once the TTL expires.
   # @attr ttl_expires_in [Float] Time left before the message expires, in seconds.
+  #   If the TTL timer isn't started yet, equals to the value of the ttl field.
   # @attr via_bot_user_id [Integer] If non-zero, the user identifier of the bot through which this message was sent.
   # @attr author_signature [TD::Types::String, nil] For channel posts and anonymous group messages, optional author
   #   signature.
@@ -47,7 +59,7 @@ module TD::Types
   # @attr reply_markup [TD::Types::ReplyMarkup, nil] Reply markup for the message; may be null.
   class Message < Base
     attribute :id, TD::Types::Coercible::Integer
-    attribute :sender, TD::Types::MessageSender
+    attribute :sender_id, TD::Types::MessageSender
     attribute :chat_id, TD::Types::Coercible::Integer
     attribute :sending_state, TD::Types::MessageSendingState.optional.default(nil)
     attribute :scheduling_state, TD::Types::MessageSchedulingState.optional.default(nil)
@@ -55,16 +67,23 @@ module TD::Types
     attribute :is_pinned, TD::Types::Bool
     attribute :can_be_edited, TD::Types::Bool
     attribute :can_be_forwarded, TD::Types::Bool
+    attribute :can_be_saved, TD::Types::Bool
     attribute :can_be_deleted_only_for_self, TD::Types::Bool
     attribute :can_be_deleted_for_all_users, TD::Types::Bool
+    attribute :can_get_added_reactions, TD::Types::Bool
     attribute :can_get_statistics, TD::Types::Bool
     attribute :can_get_message_thread, TD::Types::Bool
+    attribute :can_get_viewers, TD::Types::Bool
+    attribute :can_get_media_timestamp_links, TD::Types::Bool
+    attribute :can_report_reactions, TD::Types::Bool
+    attribute :has_timestamped_media, TD::Types::Bool
     attribute :is_channel_post, TD::Types::Bool
     attribute :contains_unread_mention, TD::Types::Bool
     attribute :date, TD::Types::Coercible::Integer
     attribute :edit_date, TD::Types::Coercible::Integer
     attribute :forward_info, TD::Types::MessageForwardInfo.optional.default(nil)
     attribute :interaction_info, TD::Types::MessageInteractionInfo.optional.default(nil)
+    attribute :unread_reactions, TD::Types::Array.of(TD::Types::UnreadReaction)
     attribute :reply_in_chat_id, TD::Types::Coercible::Integer
     attribute :reply_to_message_id, TD::Types::Coercible::Integer
     attribute :message_thread_id, TD::Types::Coercible::Integer

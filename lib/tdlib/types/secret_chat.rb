@@ -12,8 +12,9 @@ module TD::Types
   #   Alternatively, the first 32 bytes of the hash can be converted to the hexadecimal format and printed as 32
   #   2-digit hex numbers.
   # @attr layer [Integer] Secret chat layer; determines features supported by the chat partner's application.
-  #   Video notes are supported if the layer >= 66; nested text entities and underline and strikethrough entities are
-  #   supported if the layer >= 101.
+  #   Nested text entities and underline and strikethrough entities are supported if the layer >= 101, files bigger
+  #   than 2000MB are supported if the layer >= 143, spoiler and custom emoji text entities are supported if the layer >=
+  #   144.
   class SecretChat < Base
     attribute :id, TD::Types::Coercible::Integer
     attribute :user_id, TD::Types::Coercible::Integer

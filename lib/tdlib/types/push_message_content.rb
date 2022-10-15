@@ -24,8 +24,11 @@ module TD::Types
       chat_add_members
       chat_change_photo
       chat_change_title
+      chat_set_theme
       chat_delete_member
       chat_join_by_link
+      chat_join_by_request
+      recurring_payment
       message_forwards
       media_album
     ].each do |type|
