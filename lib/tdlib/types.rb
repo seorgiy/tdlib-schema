@@ -28,6 +28,7 @@ module TD::Types
       'authorizationStateWaitPhoneNumber'                       => 'AuthorizationState::WaitPhoneNumber',
       'authorizationStateWaitEmailAddress'                      => 'AuthorizationState::WaitEmailAddress',
       'authorizationStateWaitEmailCode'                         => 'AuthorizationState::WaitEmailCode',
+      'authorizationStateWaitEncryptionKey'                     => 'AuthorizationState::WaitEncryptionKey',
       'authorizationStateWaitCode'                              => 'AuthorizationState::WaitCode',
       'authorizationStateWaitOtherDeviceConfirmation'           => 'AuthorizationState::WaitOtherDeviceConfirmation',
       'authorizationStateWaitRegistration'                      => 'AuthorizationState::WaitRegistration',
