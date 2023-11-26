@@ -4,6 +4,7 @@ module TD::Types
     %w[
       message
       name
+      telegram
     ].each do |type|
       autoload TD::Types.camelize(type), "tdlib/types/input_invoice/#{type}"
     end

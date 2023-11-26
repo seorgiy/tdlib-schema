@@ -4,7 +4,7 @@ module TD::Types
   # @attr id [TD::Types::String, nil] Remote file identifier; may be empty.
   #   Can be used by the current user across application restarts or even from other devices.
   #   Uniquely identifies a file, but a file can have a lot of different valid identifiers.
-  #   If the ID starts with "http://" or "https://", it represents the HTTP URL of the file.
+  #   If the identifier starts with "http://" or "https://", it represents the HTTP URL of the file.
   #   TDLib is currently unable to download files if only their URL is known.
   #   If downloadFile/addFileToDownloads is called on such a file or if it is sent to a secret chat, TDLib starts a
   #   file generation process by sending {TD::Types::Update::FileGenerationStart} to the application with the HTTP URL in the

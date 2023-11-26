@@ -1,6 +1,6 @@
 module TD::Types
   # Options to be used when a message content is copied without reference to the original sender.
-  # Service messages and messageInvoice can't be copied.
+  # Service messages, and messages with messageInvoice or messagePremiumGiveaway content can't be copied.
   #
   # @attr send_copy [Boolean] True, if content of the message needs to be copied without reference to the original
   #   sender.

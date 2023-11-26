@@ -4,6 +4,8 @@ module TD::Types
     %w[
       premium_subscription
       gifted_premium
+      premium_gift_codes
+      premium_giveaway
     ].each do |type|
       autoload TD::Types.camelize(type), "tdlib/types/store_payment_purpose/#{type}"
     end

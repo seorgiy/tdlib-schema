@@ -8,6 +8,7 @@ module TD::Types
       document
       notification_sound
       photo
+      photo_story
       profile_photo
       secret
       secret_thumbnail
@@ -17,6 +18,7 @@ module TD::Types
       unknown
       video
       video_note
+      video_story
       voice_note
       wallpaper
     ].each do |type|

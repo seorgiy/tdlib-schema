@@ -18,6 +18,7 @@ module TD::Types
       code
       pre
       pre_code
+      block_quote
       text_url
       mention_name
       custom_emoji

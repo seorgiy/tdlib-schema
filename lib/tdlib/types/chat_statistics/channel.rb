@@ -5,7 +5,8 @@ module TD::Types
   # @attr member_count [TD::Types::StatisticalValue] Number of members in the chat.
   # @attr mean_view_count [TD::Types::StatisticalValue] Mean number of times the recently sent messages was viewed.
   # @attr mean_share_count [TD::Types::StatisticalValue] Mean number of times the recently sent messages was shared.
-  # @attr enabled_notifications_percentage [Float] A percentage of users with enabled notifications for the chat.
+  # @attr enabled_notifications_percentage [Float] A percentage of users with enabled notifications for the chat;
+  #   0-100.
   # @attr member_count_graph [TD::Types::StatisticalGraph] A graph containing number of members in the chat.
   # @attr join_graph [TD::Types::StatisticalGraph] A graph containing number of members joined and left the chat.
   # @attr mute_graph [TD::Types::StatisticalGraph] A graph containing number of members muted and unmuted the chat.

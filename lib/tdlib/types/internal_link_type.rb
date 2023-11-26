@@ -6,12 +6,16 @@ module TD::Types
       attachment_menu_bot
       authentication_code
       background
+      bot_add_to_channel
       bot_start
       bot_start_in_group
-      bot_add_to_channel
       change_phone_number
+      chat_boost
+      chat_folder_invite
+      chat_folder_settings
       chat_invite
-      filter_settings
+      default_message_auto_delete_timer_settings
+      edit_profile_settings
       game
       instant_view
       invoice
@@ -22,19 +26,24 @@ module TD::Types
       passport_data_request
       phone_number_confirmation
       premium_features
+      premium_gift_code
       privacy_and_security_settings
       proxy
       public_chat
       qr_code_authentication
       restore_purchases
       settings
+      side_menu_bot
       sticker_set
+      story
       theme
       theme_settings
       unknown_deep_link
       unsupported_proxy
       user_phone_number
+      user_token
       video_chat
+      web_app
     ].each do |type|
       autoload TD::Types.camelize(type), "tdlib/types/internal_link_type/#{type}"
     end

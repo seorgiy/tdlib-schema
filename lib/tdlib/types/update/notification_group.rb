@@ -10,9 +10,9 @@ module TD::Types
   # @attr total_count [Integer] Total number of unread notifications in the group, can be bigger than number of active
   #   notifications.
   # @attr added_notifications [Array<TD::Types::Notification>] List of added group notifications, sorted by
-  #   notification ID.
+  #   notification identifier.
   # @attr removed_notification_ids [Array<Integer>] Identifiers of removed group notifications, sorted by notification
-  #   ID.
+  #   identifier.
   class Update::NotificationGroup < Update
     attribute :notification_group_id, TD::Types::Coercible::Integer
     attribute :type, TD::Types::NotificationGroupType

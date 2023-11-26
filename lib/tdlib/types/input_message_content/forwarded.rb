@@ -3,6 +3,7 @@ module TD::Types
   #
   # @attr from_chat_id [Integer] Identifier for the chat this forwarded message came from.
   # @attr message_id [Integer] Identifier of the message to forward.
+  #   A message can be forwarded only if message.can_be_forwarded.
   # @attr in_game_share [Boolean] True, if a game message is being shared from a launched game; applies only to game
   #   messages.
   # @attr copy_options [TD::Types::MessageCopyOptions] Options to be used to copy content of the message without

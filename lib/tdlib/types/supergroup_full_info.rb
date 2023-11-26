@@ -1,7 +1,8 @@
 module TD::Types
   # Contains full information about a supergroup or channel.
   #
-  # @attr photo [TD::Types::ChatPhoto, nil] Chat photo; may be null.
+  # @attr photo [TD::Types::ChatPhoto, nil] Chat photo; may be null if empty or unknown.
+  #   If non-null, then it is the same photo as in chat.photo.
   # @attr description [TD::Types::String] Supergroup or channel description.
   # @attr member_count [Integer] Number of members in the supergroup or channel; 0 if unknown.
   # @attr administrator_count [Integer] Number of privileged users in the supergroup or channel; 0 if unknown.
@@ -14,17 +15,27 @@ module TD::Types
   # @attr slow_mode_delay_expires_in [Float] Time left before next message can be sent in the supergroup, in seconds.
   #   An {TD::Types::Update::SupergroupFullInfo} update is not triggered when value of this field changes, but both new
   #   and old values are non-zero.
-  # @attr can_get_members [Boolean] True, if members of the chat can be retrieved.
-  # @attr can_set_username [Boolean] True, if the chat username can be changed.
+  # @attr can_get_members [Boolean] True, if members of the chat can be retrieved via getSupergroupMembers or
+  #   searchChatMembers.
+  # @attr has_hidden_members [Boolean] True, if non-administrators can receive only administrators and bots using
+  #   getSupergroupMembers or searchChatMembers.
+  # @attr can_hide_members [Boolean] True, if non-administrators and non-bots can be hidden in responses to
+  #   getSupergroupMembers and searchChatMembers for non-administrators.
   # @attr can_set_sticker_set [Boolean] True, if the supergroup sticker set can be changed.
   # @attr can_set_location [Boolean] True, if the supergroup location can be changed.
   # @attr can_get_statistics [Boolean] True, if the supergroup or channel statistics are available.
+  # @attr can_toggle_aggressive_anti_spam [Boolean] True, if aggressive anti-spam checks can be enabled or disabled in
+  #   the supergroup.
   # @attr is_all_history_available [Boolean] True, if new chat members will have access to old messages.
-  #   In public or discussion groups and both public and private channels, old messages are always available, so this
-  #   option affects only private supergroups without a linked chat.
-  #   The value of this field is only available for chat administrators.
+  #   In public, discussion, of forum groups and all channels, old messages are always available, so this option
+  #   affects only private non-forum supergroups without a linked chat.
+  #   The value of this field is only available to chat administrators.
+  # @attr has_aggressive_anti_spam_enabled [Boolean] True, if aggressive anti-spam checks are enabled in the
+  #   supergroup.
+  #   The value of this field is only available to chat administrators.
+  # @attr has_pinned_stories [Boolean] True, if the channel has pinned stories.
   # @attr sticker_set_id [Integer] Identifier of the supergroup sticker set; 0 if none.
-  # @attr location [TD::Types::ChatLocation, nil] Location to which the supergroup is connected; may be null.
+  # @attr location [TD::Types::ChatLocation, nil] Location to which the supergroup is connected; may be null if none.
   # @attr invite_link [TD::Types::ChatInviteLink, nil] Primary invite link for the chat; may be null.
   #   For chat administrators with can_invite_users right only.
   # @attr bot_commands [Array<TD::Types::BotCommands>] List of commands of bots in the group.
@@ -43,11 +54,15 @@ module TD::Types
     attribute :slow_mode_delay, TD::Types::Coercible::Integer
     attribute :slow_mode_delay_expires_in, TD::Types::Coercible::Float
     attribute :can_get_members, TD::Types::Bool
-    attribute :can_set_username, TD::Types::Bool
+    attribute :has_hidden_members, TD::Types::Bool
+    attribute :can_hide_members, TD::Types::Bool
     attribute :can_set_sticker_set, TD::Types::Bool
     attribute :can_set_location, TD::Types::Bool
     attribute :can_get_statistics, TD::Types::Bool
+    attribute :can_toggle_aggressive_anti_spam, TD::Types::Bool
     attribute :is_all_history_available, TD::Types::Bool
+    attribute :has_aggressive_anti_spam_enabled, TD::Types::Bool
+    attribute :has_pinned_stories, TD::Types::Bool
     attribute :sticker_set_id, TD::Types::Coercible::Integer
     attribute :location, TD::Types::ChatLocation.optional.default(nil)
     attribute :invite_link, TD::Types::ChatInviteLink.optional.default(nil)

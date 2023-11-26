@@ -18,6 +18,8 @@ module TD::Types
       new_chat
       chat_title
       chat_photo
+      chat_accent_color
+      chat_background_custom_emoji
       chat_permissions
       chat_last_message
       chat_position
@@ -27,21 +29,24 @@ module TD::Types
       chat_available_reactions
       chat_draft_message
       chat_message_sender
-      chat_message_ttl
+      chat_message_auto_delete_time
       chat_notification_settings
       chat_pending_join_requests
       chat_reply_markup
+      chat_background
       chat_theme
       chat_unread_mention_count
       chat_unread_reaction_count
       chat_video_chat
       chat_default_disable_notification
       chat_has_protected_content
-      chat_has_scheduled_messages
-      chat_is_blocked
+      chat_is_translatable
       chat_is_marked_as_unread
-      chat_filters
+      chat_block_list
+      chat_has_scheduled_messages
+      chat_folders
       chat_online_member_count
+      forum_topic_info
       scope_notification_settings
       notification
       notification_group
@@ -72,6 +77,13 @@ module TD::Types
       user_privacy_setting_rules
       unread_message_count
       unread_chat_count
+      story
+      story_deleted
+      story_send_succeeded
+      story_send_failed
+      chat_active_stories
+      story_list_chat_count
+      story_stealth_mode
       option
       sticker_set
       installed_sticker_sets
@@ -82,10 +94,12 @@ module TD::Types
       saved_notification_sounds
       selected_background
       chat_themes
+      accent_colors
       language_pack_strings
       connection_state
       terms_of_service
       users_nearby
+      unconfirmed_session
       attachment_menu_bots
       web_app_message_sent
       active_emoji_reactions
@@ -94,6 +108,8 @@ module TD::Types
       animated_emoji_message_clicked
       animation_search_parameters
       suggested_actions
+      add_chat_members_privacy_forbidden
+      autosave_settings
       new_inline_query
       new_chosen_inline_result
       new_callback_query
@@ -106,6 +122,7 @@ module TD::Types
       poll_answer
       chat_member
       new_chat_join_request
+      chat_boost
     ].each do |type|
       autoload TD::Types.camelize(type), "tdlib/types/update/#{type}"
     end

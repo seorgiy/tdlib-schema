@@ -2,7 +2,7 @@ module TD::Types
   # The link is a link to a proxy.
   # Call addProxy with the given parameters to process the link and add the proxy.
   #
-  # @attr server [TD::Types::String] Proxy server IP address.
+  # @attr server [TD::Types::String] Proxy server domain or IP address.
   # @attr port [Integer] Proxy server port.
   # @attr type [TD::Types::ProxyType] Type of the proxy.
   class InternalLinkType::Proxy < InternalLinkType

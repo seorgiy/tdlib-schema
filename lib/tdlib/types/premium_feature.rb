@@ -14,7 +14,12 @@ module TD::Types
       profile_badge
       emoji_status
       animated_profile_photo
+      forum_topic_icon
       app_icons
+      real_time_chat_translation
+      upgraded_stories
+      chat_boost
+      accent_color
     ].each do |type|
       autoload TD::Types.camelize(type), "tdlib/types/premium_feature/#{type}"
     end

@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "tdlib-schema"
-  spec.version       = "1.8.7"
+  spec.version       = "1.8.21"
   spec.authors       = ["Southbridge"]
   spec.email         = ["ask@southbridge.io"]
 

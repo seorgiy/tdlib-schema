@@ -20,6 +20,7 @@ module TD::Types
       dice
       game
       poll
+      story
       invoice
       call
       video_chat_scheduled
@@ -39,15 +40,26 @@ module TD::Types
       chat_upgrade_from
       pin_message
       screenshot_taken
+      chat_set_background
       chat_set_theme
-      chat_set_ttl
+      chat_set_message_auto_delete_time
+      forum_topic_created
+      forum_topic_edited
+      forum_topic_is_closed_toggled
+      forum_topic_is_hidden_toggled
+      suggest_profile_photo
       custom_service_action
       game_score
       payment_successful
       payment_successful_bot
       gifted_premium
+      premium_gift_code
+      premium_giveaway_created
+      premium_giveaway
       contact_registered
-      website_connected
+      user_shared
+      chat_shared
+      bot_write_access_allowed
       web_app_data_sent
       web_app_data_received
       passport_data_sent

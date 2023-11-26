@@ -1,7 +1,7 @@
 module TD::Types
   # The call is ready to use.
   #
-  # @attr protocol [TD::Types::CallProtocol] Call protocols supported by the peer.
+  # @attr protocol [TD::Types::CallProtocol] Call protocols supported by the other call participant.
   # @attr servers [Array<TD::Types::CallServer>] List of available call servers.
   # @attr config [TD::Types::String] A JSON-encoded call config.
   # @attr encryption_key [String] Call encryption key.

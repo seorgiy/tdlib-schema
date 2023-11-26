@@ -6,7 +6,7 @@ module TD::Types
   # @attr scheduled_start_date [Integer] Point in time (Unix timestamp) when the group call is supposed to be started
   #   by an administrator; 0 if it is already active or was ended.
   # @attr enabled_start_notification [Boolean] True, if the group call is scheduled and the current user will receive a
-  #   notification when the group call will start.
+  #   notification when the group call starts.
   # @attr is_active [Boolean] True, if the call is active.
   # @attr is_rtmp_stream [Boolean] True, if the chat is an RTMP stream instead of an ordinary video chat.
   # @attr is_joined [Boolean] True, if the call is joined.

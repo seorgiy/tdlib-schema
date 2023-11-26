@@ -15,6 +15,8 @@ module TD::Types
   # @attr is_official [Boolean] True, if the sticker set is official.
   # @attr sticker_format [TD::Types::StickerFormat] Format of the stickers in the set.
   # @attr sticker_type [TD::Types::StickerType] Type of the stickers in the set.
+  # @attr needs_repainting [Boolean] True, if stickers in the sticker set are custom emoji that must be repainted; for
+  #   custom emoji sticker sets only.
   # @attr is_viewed [Boolean] True for already viewed trending sticker sets.
   # @attr size [Integer] Total number of stickers in the set.
   # @attr covers [Array<TD::Types::Sticker>] Up to the first 5 stickers from the set, depending on the context.
@@ -30,6 +32,7 @@ module TD::Types
     attribute :is_official, TD::Types::Bool
     attribute :sticker_format, TD::Types::StickerFormat
     attribute :sticker_type, TD::Types::StickerType
+    attribute :needs_repainting, TD::Types::Bool
     attribute :is_viewed, TD::Types::Bool
     attribute :size, TD::Types::Coercible::Integer
     attribute :covers, TD::Types::Array.of(TD::Types::Sticker)
